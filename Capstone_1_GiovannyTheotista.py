@@ -12,10 +12,10 @@ while True:
         while True:
             print('\n ====================')
             id_mahasiswa=int(input('Input ID: '))
-            nama=input('Input nama: ')
-            prodi=input('Input Prodi: ')
-            ipk=input('Input IPK: ')
-            smst=input('Input Semester: ')
+            nama=str(input('Input nama: '))
+            prodi=str(input('Input Prodi: '))
+            ipk=float(input('Input IPK: '))
+            smst=int(input('Input Semester: '))
             kalkulus=int(input('Input Nilai Kalkulus: '))
             newdata=[id_mahasiswa,nama,prodi,ipk,smst,kalkulus]
             print('ID \t\t | Nama \t | Prodi \t | IPK \t | Semester \t | Nilai Kalkulus')
