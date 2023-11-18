@@ -198,4 +198,3 @@ while True:
     else:
         print('Masukan Pilihan Lain')
         break
->>>>>>> fcc9b867c682eaa320d8696f7a27795cc5af8007
