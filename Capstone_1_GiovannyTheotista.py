@@ -195,6 +195,6 @@ while True:
     #Close Program
     elif task==6:
         print('Sampai Jumpa')
+        break
     else:
         print('Masukan Pilihan Lain')
-        break
