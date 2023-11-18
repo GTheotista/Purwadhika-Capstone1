@@ -113,7 +113,7 @@ while True:
                                 print('{} \t | {} \t | {} \t \t| {} \t | {} \t \t | {}'.format(
                                     sublist[0],sublist[1],sublist[2],sublist[3],sublist[4],sublist[5]))
                     elif change==3: #ganti ipk
-                        change_ipk=str(input('Masukan IPK Baru: '))
+                        change_ipk=int(input('Masukan IPK Baru: '))
                         print('\n ====================')
                         for sublist in data:
                             if sublist[0] == input_id:
@@ -122,7 +122,7 @@ while True:
                                 print('{} \t | {} \t | {} \t \t| {} \t | {} \t \t | {}'.format(
                                     sublist[0],sublist[1],sublist[2],sublist[3],sublist[4],sublist[5]))
                     elif change==4: #ganti semester
-                        change_smst=str(input('Masukan Semester Baru: '))
+                        change_smst=int(input('Masukan Semester Baru: '))
                         print('\n ====================')
                         for sublist in data:
                             if sublist[0] == input_id:
@@ -131,7 +131,7 @@ while True:
                                 print('{} \t | {} \t | {} \t \t| {} \t | {} \t \t | {}'.format(
                                     sublist[0],sublist[1],sublist[2],sublist[3],sublist[4],sublist[5]))
                     elif change==5: #ganti nilai kalkulus
-                        change_nilai=str(input('Masukan Nilai Kalkulus Baru: '))
+                        change_nilai=int(input('Masukan Nilai Kalkulus Baru: '))
                         print('\n ====================')
                         for sublist in data:
                             if sublist[0] == input_id:
