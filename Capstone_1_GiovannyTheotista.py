@@ -1,9 +1,5 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Nov 14 18:42:22 2023
+#Capstone 1 Purwadhika Project
 
-@author: giovanny
-"""
 #pilih salah satu data yang akan didemokan
 data=[[123,'Gio','MATH',3.75,5,90],[124,'Steve','IT',3.9,7,70]]
 #data=[] #Data Kosong
