@@ -113,7 +113,7 @@ while True:
                                 print('{} \t | {} \t | {} \t \t| {} \t | {} \t \t | {}'.format(
                                     sublist[0],sublist[1],sublist[2],sublist[3],sublist[4],sublist[5]))
                     elif change==3: #ganti ipk
-                        change_ipk=int(input('Masukan IPK Baru: '))
+                        change_ipk=float(input('Masukan IPK Baru: '))
                         print('\n ====================')
                         for sublist in data:
                             if sublist[0] == input_id:
