@@ -78,7 +78,92 @@ def find_data_by_id(input_id):
             return sublist
     return None
 
-# Other functions for editing, deleting, and calculating statistics...
+def edit_data():
+    print('\n ====================')
+    if len(data) != 0:
+        input_id = int(input('Masukkan ID yang Ingin Diedit Datanya: '))
+        print('\n ====================')
+        found_data = find_data_by_id(input_id)
+
+        if found_data is not None:
+            print_data_header()
+            print_data_row(found_data)
+
+            confirm_id = int(input('Apakah Benar Data Ini? \n 1. Untuk Ya \n 2. Ke Main Menu \n Pilihan Anda:'))
+
+            if confirm_id == 1:
+                edit_data_option(input_id)
+        else:
+            print('\n ====================')
+            print('Data Tidak Ditemukan')
+    else:
+        print('Data Kosong, Kembali Ke Menu Utama')
+
+def edit_data_option(input_id):
+    print('\n ====================')
+    change = int(input('Data yang Ingin Diganti? \n 1. Nama \n 2. Prodi \n 3. IPK \n 4. Semester \n 5. Nilai Kalkulus \n 6. Kembali \n Pilihan Anda: '))
+
+    if change == 1:
+        edit_name(input_id)
+    elif change == 2:
+        edit_prodi(input_id)
+    elif change == 3:
+        edit_ipk(input_id)
+    elif change == 4:
+        edit_semester(input_id)
+    elif change == 5:
+        edit_nilai_kalkulus(input_id)
+    elif change != 6:
+        print('Masukkan Pilihan Lain')
+
+def edit_name(input_id):
+    change_name = str(input('Masukkan Nama Baru: '))
+    for sublist in data:
+        if sublist[0] == input_id:
+            sublist[1] = change_name
+            print_data_header()
+            print_data_row(sublist)
+    print('Data Telah Diupdate')
+
+# Add similar functions for editing prodi, ipk, semester, nilai_kalkulus...
+
+def delete_data():
+    print('\n ====================')
+    if len(data) != 0:
+        input_id = int(input('Masukkan ID yang Ingin Dihapus: '))
+        print('\n ====================')
+        found_data = find_data_by_id(input_id)
+
+        if found_data is not None:
+            print_data_header()
+            print_data_row(found_data)
+
+            confirm_id = int(input('Apakah Benar Data Ini? \n 1. Untuk Ya \n 2. Ke Main Menu \n Pilihan Anda:'))
+
+            if confirm_id == 1:
+                for sublist in data[:]:
+                    if sublist[0] == input_id:
+                        data.remove(sublist)
+                print('Data Telah Dihapus')
+        else:
+            print('\n ====================')
+            print('Data Tidak Ditemukan')
+    else:
+        print('Data Kosong, Kembali Ke Menu Utama')
+
+def calculate_statistics():
+    print('\n ====================')
+    if len(data) != 0:
+        nilai = [item[5] for item in data]
+        nilai.sort()
+        mean = sum(nilai) / len(data)
+        minimum = nilai[0]
+        maximum = nilai[-1]
+        print(' Rata Rata Nilai Kalkulus: {} \n Nilai Kalkulus Terendah: {} \n Nilai Kalkulus Tertinggi: {}'.format(mean, minimum, maximum))
+    else:
+        print('Data Kosong, Kembali Ke Menu Utama')
+
+# Other functions for editing prodi, ipk, semester, nilai_kalkulus...
 
 while True:
     print('\n ====================')
@@ -88,8 +173,12 @@ while True:
         add_data()
     elif task == 2:
         view_data()
-    # Add similar calls for tasks 3, 4, 5...
-
+    elif task == 3:
+        edit_data()
+    elif task == 4:
+        delete_data()
+    elif task == 5:
+        calculate_statistics()
     elif task == 6:
         print('Sampai Jumpa')
         break
