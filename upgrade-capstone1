@@ -1,0 +1,97 @@
+data = [[123, 'Gio', 'MATH', 3.75, 5, 90], [124, 'Steve', 'IT', 3.9, 7, 70]]
+
+def print_data_header():
+    print('ID \t\t | Nama \t | Prodi \t | IPK \t | Semester \t | Nilai Kalkulus')
+
+def print_data_row(sublist):
+    print('{} \t | {} \t | {} \t \t| {} \t | {} \t \t | {}'.format(
+        sublist[0], sublist[1], sublist[2], sublist[3], sublist[4], sublist[5]))
+
+def add_data():
+    while True:
+        print('\n ====================')
+        id_mahasiswa = int(input('Input ID: '))
+        nama = str(input('Input nama: '))
+        prodi = str(input('Input Prodi: '))
+        ipk = float(input('Input IPK: '))
+        smst = int(input('Input Semester: '))
+        kalkulus = int(input('Input Nilai Kalkulus: '))
+        new_data = [id_mahasiswa, nama, prodi, ipk, smst, kalkulus]
+
+        print_data_header()
+        print_data_row(new_data)
+
+        confirm = int(input('Apakah data yang dimasukkan sudah benar? \n 1. Ya \n 2. Ulangi input data \n 3. Menu utama \n Pilihan Anda: '))
+
+        if confirm == 1:
+            data.append(new_data)
+            break
+        elif confirm != 2:
+            break
+
+def view_data():
+    print('\n ====================')
+    if len(data) != 0:
+        while True:
+            print('\n ====================')
+            view_option = int(input('Lihat data: \n 1. Seluruh Data \n 2. Cari Data Dengan ID \n 3. Cari Data Dengan Nama \n 4. Kembali ke Menu Utama \n Pilihan Anda: '))
+            print('\n ====================')
+
+            if view_option == 1:
+                print_data_header()
+                for i in range(len(data)):
+                    print_data_row(data[i])
+            elif view_option == 2:
+                view_data_by_id()
+            elif view_option == 3:
+                view_data_by_name()
+            else:
+                break
+    else:
+        print('Data Kosong, Kembali Ke Menu Utama')
+
+def view_data_by_id():
+    input_id = int(input('Masukkan ID yang Ingin Dicari: '))
+    print('\n ====================')
+    found_data = find_data_by_id(input_id)
+
+    if found_data is not None:
+        print_data_header()
+        print_data_row(found_data)
+    else:
+        print('\n Data Tidak Ditemukan')
+
+def view_data_by_name():
+    input_nama = str(input('Masukkan Nama yang Ingin Dicari: '))
+    print('\n ====================')
+    print_data_header()
+
+    for i in range(len(data)):
+        if input_nama in data[i][1]:
+            print_data_row(data[i])
+        else:
+            continue
+
+def find_data_by_id(input_id):
+    for sublist in data:
+        if input_id in sublist:
+            return sublist
+    return None
+
+# Other functions for editing, deleting, and calculating statistics...
+
+while True:
+    print('\n ====================')
+    task = int(input('Main Menu: \n 1. Tambah data \n 2. Lihat data \n 3. Edit data \n 4. Hapus Data \n 5. Statistik Nilai Kalkulus \n 6. Stop Program \n Pilihan Anda: '))
+
+    if task == 1:
+        add_data()
+    elif task == 2:
+        view_data()
+    # Add similar calls for tasks 3, 4, 5...
+
+    elif task == 6:
+        print('Sampai Jumpa')
+        break
+    else:
+        print('Masukkan Pilihan Lain')
